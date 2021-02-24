@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 [image3]: ./output_images/Combined_Transform.png "Road Transformed"
 [image4]: ./output_images/Perspective_Transform_Ex.png "Perspective Image"
 [image5]: ./output_images/Lane_Detection_MW.png "Lane Poly"
-[image6]: ./output_images/Combined_Transform.png "Road Transformed"
+[image6]: ./output_images/Finding_Lane_Curve_Centre.png "Road Transformed"
 
 [video1]: ./output_Video/project_video.mp4 "Video"
 
@@ -116,7 +116,6 @@ in the Cell number 10, I implemented a function that takes the raw image and ret
 The output of this pipeline function is shown below. 
 
 ![alt text][image6]
-![alt text][image7]
 
 ---
 
