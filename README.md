@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 [image3]: ./output_images/Combined_Transform.png "Road Transformed"
 [image4]: ./output_images/Perspective_Transform_Ex.png "Perspective Image"
 [image5]: ./output_images/Lane_Detection_MW.png"Warp Image"
-[image6]: ./output_images/Finding_Lane_Curve_Centre.png "Output"
+[image6]: ./output_images/Finding_Lane_Curve_Centre.png"Output"
 [video1]: ./output_Video/project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
