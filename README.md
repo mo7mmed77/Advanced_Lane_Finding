@@ -115,6 +115,7 @@ in the Cell number 10, I implemented a function that takes the raw image and ret
 The output of this pipeline function is shown below. 
 
 ![alt text][image6]
+![alt text][image7]
 
 ---
 
