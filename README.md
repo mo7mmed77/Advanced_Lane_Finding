@@ -105,12 +105,12 @@ As it can be seen the output is converted to meters. using:-
 #### Result plot of the pipeline onto the road.
 
 in the Cell number 10, I implemented a function that takes the raw image and return the output of the pipeline by doing the following:
-###### Udistort the image. 
-###### Apply colour and gradient thresholds.
-###### Transform the image to Top-Down View. 
-###### Find the lane lines. 
-###### Calculate the lane curvature and find the lane centre deviation.
-###### Draw the lane area on the undistorted image and display lane curvature and deviation. 
+* Udistort the image. 
+* Apply colour and gradient thresholds.
+* Transform the image to Top-Down View. 
+* Find the lane lines. 
+* Calculate the lane curvature and find the lane centre deviation.
+* Draw the lane area on the undistorted image and display lane curvature and deviation. 
 
 The output of this pipeline function is shown below. 
 
