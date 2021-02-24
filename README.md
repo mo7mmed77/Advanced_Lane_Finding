@@ -16,11 +16,10 @@ The goals / steps of this project are the following:
 [image1]: ./output_images/Distortion_Correction.png "Undistorted"
 [image2]: ./output_images/Undistorted_Raw_Image.png "Undistorted"
 [image3]: ./output_images/Combined_Transform.png "Road Transformed"
-[image4]: ./output_images/Perspective_Transform_Ex.png "Perspective Example"
-[image5]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image6]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image7]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[image4]: ./output_images/Perspective_Transform_Ex.png "Perspective Image"
+[image5]: ./output_images/Lane_Detection_MW.png"Warp Image"
+[image6]: ./output_images/Finding_Lane_Curve_Centre.png "Output"
+[video1]: ./output_Video/project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -66,28 +65,54 @@ This resulted in the following source and destination points:
 
 | Source        | Destination   | 
 |:-------------:|:-------------:| 
-| 731, 455      | 720, 0        | 
-| 570, 455      | 0, 0          |
-| 1300, 690     | 1280, 720     |
-| 120, 690      | 0, 720        |
+| 695, 455      | 720, 0        | 
+| 586, 455      | 0, 0          |
+| 1070, 690     | 1280, 720     |
+| 240, 690      | 0, 720        |
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
 ![alt text][image4]
 
-#### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+#### Lane-line pixels and their positions fit with a polynomial
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+Then I fit my lane lines with a 2nd order polynomial kinda like this: Ax^2 +Bx+ C. This was done to extrapolate and interpolate any missing pixels of the lane lines in the images. This part was done in the 8th Cell of the ipy notebook code. 
 
 ![alt text][image5]
 
-#### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+#### Radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I did this in Cell number 9 of the ipy code. The radius of curvature was found using the formula 
+```python
+    # Calculation of R_curve (radius of curvature)
+    left_curverad = ((1 + (2*left_fit_cr[0]*y_eval*ym_per_pix + left_fit_cr[1])**2)**1.5) / np.absolute(2*left_fit_cr[0])
+    right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*ym_per_pix + right_fit_cr[1])**2)**1.5) / np.absolute(2*right_fit_cr[0])
+```
+The position of the car with respect to the lane was found by calculating the distance from the centre of the image to the centre of the car with respect to the two lanes. using this formula:- 
+```python
+    d_centre_img= (img.shape[1]/2)*xm_per_pix
+    d_centre_car=(left_lane_pos+right_lane_pos)/2
+    D=d_centre_img-d_centre_car
+```
+As it can be seen the output is converted to meters. using:- 
 
-#### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+```python
+    # Define conversions in x and y from pixels space to meters
+    ym_per_pix = 30/720 # meters per pixel in y dimension
+    xm_per_pix = 3.7/700 # meters per pixel in x dimension
+```
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+#### Result plot of the pipeline onto the road.
+
+in the Cell number 10, I implemented a function that takes the raw image and return the output of the pipeline by doing the following:
+# Udistort the image. 
+# Apply colour and gradient thresholds.
+# Transform the image to Top-Down View. 
+# Find the lane lines. 
+# Calculate the lane curvature and find the lane centre deviation.
+# Draw the lane area on the undistorted image and display lane curvature and deviation. 
+
+The output of this pipeline function is shown below. 
 
 ![alt text][image6]
 
