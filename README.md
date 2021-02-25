@@ -128,6 +128,20 @@ Here's a [link to my video result](./output_Video/project_video.mp4)
 ---
 
 ### Discussion
+Considerations of issues faced
+Possible improvements to the pipeline
+Scenarios where the pipeline might fail
+
+#### Pipeline Summary and Challenges faced
+* The main challenge was detecting the lane line under different light, colour conditions. 
+* The pipeline was able to perform well for the given input images. 
+* Other issues could be faced when the lane has some impurities in the middle. 
+
+#### Pipeline Future Improvements
+* Fine tuning of the colour and gradient thresholds on different weather conditions, and lane line colors. 
+* Making the lane detection more stable in case of losing detection of one or two lane lines. 
+* Making use of the edge of the road to estimate the lane position (in case no lane lines were detected). 
+* Applying this pipeline on a hardware board (possibly a SBC) and testing it real time. 
 
 #### Pipeline Limiations:- 
 * The pipeline is limited to the light conditions similar to that were shown in the test images, as the thresholds was tuned for it.
